@@ -1,0 +1,18 @@
+mmversion: '3'
+
+services:
+  frontend:
+    image: nginx
+    ports:
+      - "8080:80"
+
+  backend:
+    image: node:18
+    command: node -e "require('http').createServer((req,res)=>res.end('Backend chal raha hai 🚀')).listen(3000)"
+    ports:
+  - "8081:80""
+
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
